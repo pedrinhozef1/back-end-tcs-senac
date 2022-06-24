@@ -3,9 +3,9 @@ spring:
 #    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   # Configura�ao do banco de dados
   datasource:
-    url: jdbc:postgresql://database.cjtwq24ivgdy.us-east-1.rds.amazonaws.com:5432/postgres
-    username: postgres
-    password: projeto123
+    url: jdbc:postgresql://ec2-52-22-136-117.compute-1.amazonaws.com:5432/d4485d6vu7ej12
+    username: bislcxxnfyhhth
+    password: 75a314d4ee171dd1d8995c995e85c10576ebc5a8c9ddc4db73b0437d73652076
   # Configura�ao do JPA
   jpa:
     hibernate:
@@ -20,9 +20,9 @@ spring:
     open-in-view: false
   # Configura��o Flyway - Migration
   flyway:
-    url: jdbc:postgresql://${DATABASE_HOST:database.cjtwq24ivgdy.us-east-1.rds.amazonaws.com}:${DATABASE_PORT:5432}/${DATABASE:postgres}?createDatabaseIfNotExist=true
-    user: ${DATABASE_USER:postgres}
-    password: ${DATABASE_PASSWD:projeto123}
+    url: jdbc:postgresql://${DATABASE_HOST:ec2-52-22-136-117.compute-1.amazonaws.com}:${DATABASE_PORT:5432}/${DATABASE:d4485d6vu7ej12}?createDatabaseIfNotExist=true
+    user: ${DATABASE_USER:bislcxxnfyhhth}
+    password: ${DATABASE_PASSWD:75a314d4ee171dd1d8995c995e85c10576ebc5a8c9ddc4db73b0437d73652076}
     schemas:
       - ${DATABASE:projeto_social}
     baseline-on-migrate: true
