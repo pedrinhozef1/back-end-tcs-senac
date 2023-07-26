@@ -7,6 +7,7 @@ import com.senac.projetosocial.exceptions.JWTAuthenticationException;
 import com.senac.projetosocial.exceptions.RestExceptionHandler;
 import com.senac.projetosocial.jwt.TokenValidation;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +24,7 @@ import java.util.Optional;
 
 @Component
 @AllArgsConstructor
+@Slf4j
 public class JWTAuthenticationFilter extends OncePerRequestFilter {
     private final RestExceptionHandler restExceptionHandler;
     private final ObjectMapper objectMapper;
@@ -40,6 +42,9 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
             try {
                 String HEADER_STRING = "Authorization";
                 String bearerToken = Optional.ofNullable(request.getHeader(HEADER_STRING)).orElse(Strings.EMPTY);
+
+                log.info("BearerToken: {}", bearerToken);
+
                 TokenStructure tokenStructure = tokenValidation.buscarTokenData(bearerToken);
                 SecurityContextHolder
                         .getContext()

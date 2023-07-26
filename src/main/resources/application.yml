@@ -4,9 +4,9 @@ spring:
   # Configura�ao do banco de dados
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/projeto_social
-    username: postgres
-    password: admin
+    url: jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE:projeto_social}
+    username: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWD:admin}
   # Configura�ao do JPA
   jpa:
     hibernate:
@@ -14,7 +14,7 @@ spring:
     properties:
       hibernate:
         default_schema: projeto_social
-    show-sql: true
+    show-sql: ${JPA_SHOW_SQL:false}
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: false
